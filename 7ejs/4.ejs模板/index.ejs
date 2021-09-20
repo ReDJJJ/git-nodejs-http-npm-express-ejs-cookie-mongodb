@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ejs模板文件</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>helloworld</h1>
+        <table>
+            <tr>
+                <!-- ejs文件中,以data为文件起点 -->
+                <% for(let i = 0; i<player.length ;i++){ %>
+                    <tr><%=player[i].id %></tr>
+                    <tr><%=player[i].name %></tr>
+                    </br>
+                <%}%>
+            </tr>
+        </table>
+    </body>
+</html>

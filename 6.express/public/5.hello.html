@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-">
+        <title>post 请求发送</title>
+    </head>
+    <body>
+        <!-- <form action="http://localhost/login.html" method="post"> -->
+            <form action="/login.html" method="post">
+                <!-- 在浏览器中直接输入127.0.0.1/login.html 可以跳转到login 可是表单提交后跳转到 /login.html却不可以跳转到login 明明地址栏的网址都是一样的却不知道为什么不可以 -->
+            <input type="text" name="username" placeholder="请输入用户名">
+            <input type="password" name="password" placeholder="请输入密码">
+            <input type="submit" value='提交'>
+        </form>
+    </body>
+</html>

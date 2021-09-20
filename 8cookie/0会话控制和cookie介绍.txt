@@ -1,0 +1,41 @@
+key=>value结构 就是键值对结构 简称kv结构
+
+会话控制:
+    http协议是一个无状态的报文,无法区分多次请求是否来自于同一客户端.
+    但是实际开发中又大量的需求需要知道报文是来自于哪个客户端发送的请求;
+    而http协议默认不会识别客户端;
+    此时就需要会话控制(用以识别客户端)
+
+Cookie:
+    Cookie本质上是存在于浏览器端的文本,会随着http请求自动传送给服务器;
+    Cookie存在于http请求的[请求头]中
+    cookie是kv结构的字符串,服务端可以根据cookie来区分不同客户端,从而响应不同的结果;
+
+// 如何查看存储在浏览器中的Cookie
+    浏览器 - 设置 - 搜索栏cookie - 查看所有cookie
+    *cookie虽然存在于浏览器端,但是基于安全考虑加密过了,因此在客户端不能直接查看cookie的实际内容;
+    *cookie用于认证客户端,倘若明文存储不加密,则被不良应用读取后,就可以拿着cookie冒充其他客户端发送请求,造成巨大的安全隐患
+
+    查看cookie列表可以看出,浏览器将cookie按照域名进行了分类; 
+    新理解:一个浏览器端可以拥有
+    
+// cookie是怎么样产生的?
+    cookie是服务端响应回来的(响应头中的一个或多个set-cookie键值对);
+    当客户端解析响应头,遇到set-cookie的时候,就会将cookie保存起来;
+
+    //以下为baidu.com响应报文中响应头的set-cookie键值对,其中BDSVRTM=424 BD_HOME=1 H_PS_PSSID=34652...分别是cookie名和cookie值
+    Set-Cookie: BDSVRTM=424; path=/ 
+    Set-Cookie: BD_HOME=1; path=/
+    Set-Cookie: H_PS_PSSID=34652_34527_34554_34004_34585_34092_34106_26350_34627_34471_34691_34672; path=/; domain=.baidu.com
+
+    //path = / 是什么?
+    [path = / ] 是设置此cookie生效的路径  /代表此cookie在当前网站下任何路径都可用 或者说是以/开头的路径都好使
+
+    例如 path = /admin  则客户端向/login发送请求的时候,就不会携带path=/admin的cookie;  只有向/admin及下级目录才会携带该cookie  例如 /admin/test
+
+// 关于域名补充
+    163.com 于 www.163.com 不是同一个域名
+    顶级域名: 163.com
+    二级域名: www.163.com music.163.com  vedio.163.com
+
+

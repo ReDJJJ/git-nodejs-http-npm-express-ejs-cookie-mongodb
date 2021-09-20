@@ -1,0 +1,24 @@
+{
+  "name": "firstnpm",
+  "version": "1.0.0",
+  "description": "第一次使用npm init命令",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "git push -u origin https://github.com/",
+    "run": "node ./接收封装npm包文件夹/3.npm配置别名并执行.js",
+    "ABC":"node ./node.js模块化/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "request": "^2.88.2",
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0"
+  }
+}

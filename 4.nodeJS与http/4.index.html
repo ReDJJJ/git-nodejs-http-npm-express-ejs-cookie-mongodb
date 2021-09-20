@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>POST请求表单</title>
+        <style>
+        
+        </style>
+    </head>
+    <body>
+        <form action="http://localhost" method="post">
+            <!-- action属性指向 表单验证发送的方向 -->
+            <!-- aciton是URL 要写完整的URL而不是单纯的域名或者ip -->
+            <input type="text" placeholder="请输入内容" name="username">
+            <input type="password" placeholder="请输入内容" name="pwd">
+            <!-- input必须要有name属性 否则无法给服务端提交 (查询字符串是&串联起来的键值对,没有键值名 怎么会有键值对呢)-->
+            <button>提交按钮</button>
+        </form>
+    </body>
+</html>

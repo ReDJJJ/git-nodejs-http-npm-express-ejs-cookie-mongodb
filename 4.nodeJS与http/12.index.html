@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>表格换行</title>
+    <style></style>
+</head>
+
+<body>
+    <table border="1" cellspacing="0" cellpadding="10" border-collapse="collapse" id="tb">
+        <tr>
+            <th>
+                table header
+            </th>
+            <th>
+                table header
+            </th>
+            <th>
+                table header
+            </th>
+        </tr>
+        <tr>
+            <td>table data</td>
+            <td>table data</td>
+            <td>table data</td>
+           
+        <tr>
+            <td>table data</td>
+            <td>table data</td>
+            <td>table data</td>
+        </tr>
+        <tr>
+            <td>table data</td>
+            <td>table data</td>
+            <td>table data</td>
+        </tr>
+    </table>
+
+    <script>
+        window.onload = function(){
+            let tr = document.querySelectorAll("#tb tr")
+            //获取表格
+            for (let i = 0; i < tr.length; i++) {
+                if(i%2==0){
+                    tr[i].style.backgroundColor = 'pink';
+                    //改的是tr标签的属性style的值
+                }else{
+                    tr[i].style.backgroundColor = "skyblue";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+//此处是最简单的存储格式
+真正的存储方式:
+    {
+        "total":XXX,
+        "data":[
+                {"username":"ASDAS","password":"123"}
+                {"username":"ASDAS","password":"123"}
+                {"username":"ASDAS","password":"123"}
+                {"username":"ASDAS","password":"123123412213123"}
+                {"username":"ASDAS","password":"123"}
+                ...叠加用户信息
+        ]
+    }
+
+//练习的存储方式:
+{"username":"ASDAS","password":"123"}
+{"username":"ASDAS","password":"123"}
+{"username":"ASDAS","password":"123"}
+{"username":"ASDAS","password":"123123412213123"}
+{"username":"ASDAS","password":"123"}
+
+//理解: 在txt中存储的都是字符串  将真正的存储方式转存为js中的对象,用js进行对象操作,然后对象再转为字符串进行写入文件存储
+
+

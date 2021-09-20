@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>注册</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h2>登录</h2>
+        <!-- <form action="http://127.0.0.1/login" method="post"> -->
+            <form action="/login" method="post">
+            <!-- 此处若action简写,不写传输协议和域名ip地址,则会以当前浏览器网页的协议和域名ip补充url -->
+            <!-- 注意html中各个属性之间用空格间隔,本人在此用,间隔导致无法正常post提交 -->
+            <!-- 只有post方法的请求报文才有请求体 -->
+            <label>用户名<br><input type="text" name="username"></label><br>
+            <label>密码<br><input type="password" name="password"></label><br>
+            <button>提交</button>
+            <button type="reset">重置</button>
+        </form>
+    </body>
+</html>

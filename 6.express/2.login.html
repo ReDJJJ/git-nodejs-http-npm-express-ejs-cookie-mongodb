@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-">
+        <title>post 请求发送</title>
+    </head>
+    <body>
+        <form action="http://localhost/login" method="post">
+            <!-- http://localhost/login
+                为什么此处html 不能简写成 /login 
+                注意观察浏览器的地址栏: 
+                若只写/login 表单提交的地址为:file:///C:/login  是一个文件协议的地址
+                //此时的请求行,都没有请求行了!! 而地址是寻找 file:///C:/login 寻找本地文件C盘 当然not found
+                Provisional headers are shown
+                Content-Type: application/x-www-form-urlencoded
+                Origin: null
+                Referer
+
+                //写完整的https 表单提交地址为:http://localhost/login 是一个http地址
+                //此时的请求行
+                POST /login HTTP/1.1 符合路由规则 所以生效了;
+
+
+                //那为什么以前可以/? 暂时不知道 写完整地址就完事了;
+                因为以前是以http协议访问的, 以前是在浏览器中输入 127.0.0.1/login 进入登录页面(需要app.get的配合
+                if(method==="GET" && pathname ==="/login")
+                let login = fs.readFileSync(__dirname+"/10.login.html");
+                res.end(login);
+                而今天是直接打开login.html文件,两者打开方式不同,协议也不同,直接双击打开html 是以文件格式file打开的; 
+                 所以简写/login  系统补齐后，内容不同  一个是file:///C:/login 一个是http://localhost/login 
+            -->
+            <input type="text" name="username" placeholder="请输入用户名">
+            <input type="password" name="password" placeholder="请输入密码">
+            <input type="submit" value='提交'>
+        </form>
+    </body>
+</html>
+
+<!--
+     本人还在疑惑,aciton表明了表单提交的方向, 也就是表单提交后跳转的页面,但是用户输入的内容不久不能成为url中的一部分了么?
+     那怎么获取用户的输入呢/？
+     其实用户输入的内容打包进post请求的请求体里面,而请求体获取需要req.on data 和 on end 事件
+     若表单提交方法是get 则会将用户输入追加在action指定的地址后面 , 用户的输入成为url中/？后面部分
+     而post方法，用户输入放入http请求的请求体里面
+     http://127.0.0.1:8000/register?username=123&password1=123&password2=123
+-->
+
+
+
+<!-- 
+    总结: 
+        action : 表单内容提交的地址,并且提交后会跳转到该地址
+        method :  get 和 post 
+                最直观的区别就是GET把参数包含在URL中，POST通过request body传递参数。
+
+        action什么时候能简写,什么时候不能简写? 
+                首先: 简写是会进行自动补齐的
+
+
+                以http协议访问 (地址栏输入 http://localhost/login  需要nodejs设置相应对应响应,返回整个html文件)
+                此时文件补齐的是补齐网址url的后面;
+
+                本地直接打开html文件,简写补齐的就是补文件URL
+
+                懒人版: action跳转 method get 添加url中 post添加进请求体
+                
+ -->
